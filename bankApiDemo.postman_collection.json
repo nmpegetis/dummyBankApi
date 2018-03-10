@@ -1,0 +1,279 @@
+{
+	"info": {
+		"name": "bankApiDemo",
+		"_postman_id": "bdd30c8f-4d1e-4f44-a544-ceca80e9179e",
+		"description": "bankApiDemo\nhttp://localhost:3001/",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [{
+			"name": "Transactions",
+			"description": "",
+			"item": [{
+					"name": "List of transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3001/api/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"transactions"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Create new transaction",
+					"request": {
+						"method": "POST",
+						"header": [{
+							"key": "Content-Type",
+							"value": "application/json"
+						}],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": 1003,\r\n    \"Amount\": 1.45,\r\n    \"Type\": 2,\r\n    \"AccountCodeFrom\": \"nmpegetis\",\r\n    \"AccountCodeTo\": \"habibi\",\r\n    \"Comment\": \"third comment\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"transactions"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3001/api/transactions/1003",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"transactions",
+								"1003"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update single transaction",
+					"request": {
+						"method": "PUT",
+						"header": [{
+							"key": "Content-Type",
+							"value": "application/json"
+						}],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Amount\": 0.8,\r\n    \"Type\": 2,\r\n    \"AccountCodeFrom\": \"habibi\",\r\n    \"AccountCodeTo\": \"habibi\",\r\n    \"Comment\": \"third comment --edited\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/transactions/1003",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"transactions",
+								"1003"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete single transaction",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3001/api/transactions/1002",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"transactions",
+								"1002"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accounts",
+			"description": "",
+			"item": [{
+					"name": "List of accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3001/api/accounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"accounts"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Create new account",
+					"event": [{
+						"listen": "test",
+						"script": {
+							"id": "1a09c837-6cc6-4b8f-a778-160a3a5d5a75",
+							"type": "text/javascript",
+							"exec": [
+								""
+							]
+						}
+					}],
+					"request": {
+						"method": "POST",
+						"header": [{
+							"key": "Content-Type",
+							"value": "application/json"
+						}],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": 2,\r\n    \"Code\": \"rita\",\r\n    \"Name\": \"Rita Bous\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/accounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"accounts"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3001/api/accounts/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"accounts",
+								"2"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update single account",
+					"request": {
+						"method": "PUT",
+						"header": [{
+							"key": "Content-Type",
+							"value": "application/json"
+						}],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Code\": \"habibi\",\r\n    \"Name\": \"Rita Bous\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/accounts/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"accounts",
+								"2"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete single account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3001/api/accounts/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"accounts",
+								"2"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
