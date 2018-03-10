@@ -2,55 +2,58 @@
 
 
 var mongoose = require('mongoose'),
-    Task = mongoose.model('Tasks');
+    Transaction = mongoose.model('Transactions');
 
-exports.list_all_tasks = function (req, res) {
-    Task.find({}, function (err, task) {
+
+exports.list_all_transactions = function (req, res) {
+    Transaction.find({}, function (err, transaction) {
         if (err)
             res.send(err);
-        res.json(task);
+        res.json(transaction);
+    });
+};
+
+exports.create_a_transaction = function (req, res) {
+    var new_transaction = new Transaction(req.body);
+    new_transaction.save(function (err, transaction) {
+        if (err)
+            res.send(err);
+        res.json(transaction);
     });
 };
 
 
-
-
-exports.create_a_task = function (req, res) {
-    var new_task = new Task(req.body);
-    new_task.save(function (err, task) {
+exports.read_a_transaction = function (req, res) {
+    console.log(req.params.id)
+    Transaction.findOne({ Id: req.params.id }, function (err, transaction) {
         if (err)
             res.send(err);
-        res.json(task);
+        res.json(transaction);
     });
 };
 
 
-exports.read_a_task = function (req, res) {
-    Task.findById(req.params.taskId, function (err, task) {
-        if (err)
-            res.send(err);
-        res.json(task);
-    });
+exports.update_a_transaction = function (req, res) {
+    Transaction.findOneAndUpdate({
+        Id: req.params.id
+    }, req.body, {
+            new: true
+        }, function (err, transaction) {
+            if (err)
+                res.send(err);
+            res.json(transaction);
+        });
 };
 
 
-exports.update_a_task = function (req, res) {
-    Task.findOneAndUpdate({ _id: req.params.taskId }, req.body, { new: true }, function (err, task) {
+exports.delete_a_transaction = function (req, res) {
+    Transaction.remove({
+        Id: req.params.id
+    }, function (err, transaction) {
         if (err)
             res.send(err);
-        res.json(task);
-    });
-};
-
-
-exports.delete_a_task = function (req, res) {
-
-
-    Task.remove({
-        _id: req.params.taskId
-    }, function (err, task) {
-        if (err)
-            res.send(err);
-        res.json({ message: 'Task successfully deleted' });
+        res.json({
+            message: 'Transaction successfully deleted'
+        });
     });
 };

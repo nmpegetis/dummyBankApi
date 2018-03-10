@@ -2,27 +2,32 @@
 module.exports = function (app) {
     var todoList = require('../controllers/todoListController');
 
-    // todoList Routes
-    app.route('/transactions')
-        .get(todoList.list_all_tasks)
-        .post(todoList.create_a_task);
+    // transactions Routes
+    app.route('/api/transactions')
+        .get(todoList.list_all_transactions)
+        .post(todoList.create_a_transaction);
 
 
-    app.route('/transactions/:Id')
-        .get(todoList.read_a_task)
-        .put(todoList.update_a_task)
-        .delete(todoList.delete_a_task);
+    app.route('/api/transactions/:id')
+        .get(todoList.read_a_transaction)
+        .put(todoList.update_a_transaction)
+        .delete(todoList.delete_a_transaction);
 
 
-    // todoList Routes
-    app.route('/accounts')
-        .get(todoList.list_all_tasks)
-        .post(todoList.create_a_task);
+    // accounts Routes
+    app.route('/api/accounts')
+        .get(todoList.list_all_transactions)
+        .post(todoList.create_a_transaction);
 
+    app.route('/api/accounts/:id')
+        .get(todoList.read_a_transaction)
+        .put(todoList.update_a_transaction)
+        .delete(todoList.delete_a_transaction);
 
-    app.route('/accounts/:Id')
-        .get(todoList.read_a_task)
-        .put(todoList.update_a_task)
-        .delete(todoList.delete_a_task);
+    app.route('api/enums/transactionTypes')
+        .get(todoList.read_a_transaction)
+        .put(todoList.update_a_transaction)
+        .delete(todoList.delete_a_transaction);
+
 };
 
