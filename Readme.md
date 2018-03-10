@@ -1,4 +1,4 @@
-# bankApiDemo #
+# dummyBankApi #
 
 Runs in [http://localhost:3001/](http://localhost:3001/)
 
@@ -6,6 +6,11 @@ check also here for details: https://documenter.getpostman.com/view/445508/banka
 
 ***
 
+Installation 
+1. `npm install`
+2. `npm run start`
+3. `mongod` <span style="color:red">*in seperate terminal*</span> 
+***
 # Transactions #
 
 
@@ -19,8 +24,6 @@ http://localhost:3001/api/transactions
 `curl --request GET \
   --url http://localhost:3001/api/transactions
 `
-
----
 
 ## POST Create new transaction ## 
 

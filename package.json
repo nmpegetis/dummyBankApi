@@ -1,5 +1,5 @@
 {
-  "name": "tis_ellados_ta_paidia_api",
+  "name": "dummyBankApi",
   "version": "0.0.1",
   "description": "sample api for serving frontend material ui app",
   "main": "index.js",
